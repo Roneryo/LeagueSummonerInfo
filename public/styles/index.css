@@ -1,0 +1,189 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: 'Roboto', sans-serif;
+    
+}
+html {
+    background-color: gray;
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+main {
+    background-color: black;
+    /* padding-left:5%;
+    padding-right:5%; */
+
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    height: 100%;
+    contain:content;
+}
+main #TagName{
+    width: 100%;
+    border-radius: 30px;
+    text-align: center;
+    border: 0px;
+    outline: none;
+    height: 20px;
+}
+#data{
+    display: inline;
+    flex-flow: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border-radius: 10px;
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    outline-style: none;
+}
+.profile{
+    display: flex;
+    margin: 20px;
+    width: 90%;
+    height: 100%;
+}
+.searchbar{
+    display: flex;
+    width: 95%;
+    padding-top:5%;
+    flex-flow: row-reverse;
+    outline: none;
+}
+#buscar{
+    position: absolute;
+    border-radius: 30px;
+    border: 0;
+    background-color: rgba(10,95,10,.7);
+    width: 10%;
+    height: 20px;
+    margin-right: 0px;
+    color: white;
+    font-weight: bold;
+}
+.dataChampion{
+    display: flex;
+    background-color: rgba(100,100,100,.6);
+    margin: 2px;
+    align-items: stretch;
+    justify-content: space-evenly;
+    color:white;
+    font-weight:bold;
+    font-size: 12px;
+}
+.userSection{
+    display: flex;
+    flex-flow: column;
+    z-index: 1;
+    color: white;
+    font-weight: 200;
+    align-items: center;
+    width: 100%;
+}
+#info{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.userinfo{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(100,100,100,.5);
+    /* padding:4%; */
+    height: 100%;
+    border-radius: 4%;
+    
+}
+img{
+    object-fit:contain;
+}
+.userinfo img.icon{
+    border-radius: 50%;
+}
+.userinfo img{
+    width: 55px;
+    height: 55px;    
+}
+
+
+.rankSection{
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+    justify-content: space-evenly;
+    padding: 2%;
+}
+.rankContainer{
+    display:flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: column;
+    background-color: rgba(0,0,0,.7);
+    padding: 3%;
+    width: 40%;
+    border-radius: 10%;
+}
+.rankDetail{
+
+}
+.banner{
+    position:absolute;
+    width: 45%;
+}
+.banner img{
+    width: 100%;
+    position: relative;   
+}
+.userprofile{
+    padding:4%;
+    border-radius: 5%;
+    height: 80%;
+    width: 90%;
+}
+
+.summoner{
+    font-weight: bold;
+    padding:2%;
+}
+.rankContainer p{
+    font-weight: bold;
+}
+.rankInfo{
+    padding:2%;
+    font-size: 10px;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+    height: 40px;
+}
+.rankInfo p{
+    margin-top:4px;
+}
+.chart
+{
+    height: 110px;
+    width: 110px;
+}
+.dataChampion img{
+    height: 40px;
+    margin: 2px;
+}
+.champInfo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: column-reverse;
+}
+::-webkit-scrollbar {
+    display: none;
+    }

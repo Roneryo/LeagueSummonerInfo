@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src https://la1.api.riotgames.com http://ddragon.leagueoflegends.com https://americas.api.riotgames.com/ https://fonts.gstatic.com https://fonts.googleapis.com 'self'; script-src 'self' https://cdn.jsdelivr.net 'sha256-d1uQHSeWRvPGnc6CJ0maKhq2i/cojbVymtk9H15ZYGo='"
+    />
+    <meta
+    http-equiv="X-Content-Security-Policy"
+    content="default-src https://la1.api.riotgames.com http://ddragon.leagueoflegends.com https://americas.api.riotgames.com/ 'self' ; script-src 'self' https://cdn.jsdelivr.net 'sha256-d1uQHSeWRvPGnc6CJ0maKhq2i/cojbVymtk9H15ZYGo='"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Roboto:ital,wght@0,300;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <title>Lol DataPlayer Info</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="searchbar">
+        <input
+          type="search"
+          placeholder="Put your opponent #TagName Here"
+          id="TagName"
+        />
+        <input id="buscar" type="button" value="Buscar" />
+      </div>
+      <div class="profile">
+        <div id="data"></div>
+        <div id="info">
+          <div class="userSection">
+            <div class="userprofile">
+              <div class="userinfo"></div>
+            </div>
+            <div class="userMatchInfo">
+              <div class="match"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./js/dataService.js"></script>
+    <script>
+
+      // import { Chart, registerables } from 'chart.js';
+      // console.log(myChart);
+   </script>
+   
+  </body>
+</html>
