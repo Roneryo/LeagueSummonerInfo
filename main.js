@@ -6,7 +6,7 @@ const createWindow = () => {
   const winDescription = {
     width: 550,
     height: 500,
-    
+
     // webPreferences: {
     //   preload: path.join(__dirname, "./public/js/preload.js"),
     // },
@@ -16,9 +16,10 @@ const createWindow = () => {
     // transparent: true
   };
   const win = new BrowserWindow(winDescription);
-  win.isResizable=false;
-  win.loadFile("./public/index.html");
   // win.setWindowButtonVisibility(false)
+  win.resizable=false;
+  win.setMenu(null)
+  win.loadFile("./public/index.html");
 };
 
 app.whenReady().then(async () => {

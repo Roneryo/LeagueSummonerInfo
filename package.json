@@ -30,12 +30,12 @@
       "makers": [
         {
           "name": "@electron-forge/maker-zip",
-         "platforms": ["windows", "linux"],
-          "config": {
-              
-          }
+          "platforms": [
+            "windows",
+            "linux"
+          ],
+          "config": {}
         }
-     
       ]
     }
   }
