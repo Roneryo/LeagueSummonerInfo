@@ -2,6 +2,7 @@ const path = require("path");
 
 const { app, BrowserWindow } = require("electron");
 
+
 const createWindow = () => {
   const winDescription = {
     width: 550,
@@ -17,9 +18,11 @@ const createWindow = () => {
   };
   const win = new BrowserWindow(winDescription);
   // win.setWindowButtonVisibility(false)
-  win.resizable=false;
+  win.resizable = false;
   win.setMenu(null)
   win.loadFile("./public/index.html");
+  // win.webContents.openDevTools()
+
 };
 
 app.whenReady().then(async () => {
@@ -31,4 +34,4 @@ app.whenReady().then(async () => {
 
 try {
   require("electron-reloader")(module);
-} catch (_) {}
+} catch (_) { }

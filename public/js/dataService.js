@@ -1,9 +1,11 @@
+
+
 const championDataURL =
   "http://ddragon.leagueoflegends.com/cdn/12.7.1/data/en_US/champion.json";
 const imageChampionURL =
   "http://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/";
 
-const API_KEY = "RGAPI-b6e40425-3863-4b7a-88ef-96056fd04f12";
+const API_KEY = "RGAPI-d609c4a0-5e0b-4792-a7d4-1adca4bc7e0a";
 const SPLASHART_URL =
   "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/";
 
@@ -30,14 +32,14 @@ async function getMatches(summonerTagName) {
     // revisionDate,
     // summonerLevel,
   } = await getSummonerData(summonerTagName);
-  // console.log(id);
+  console.log(id);
   const matchesURL = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?start=0&count=20&api_key=${API_KEY}`;
   let matches = await makeRequest(matchesURL);
   let matchesDetail = await matches.map(
     async (el) => await getMatchDetails(el)
   );
   matchesDetail = await Promise.all(matchesDetail);
-  // console.log(matchesDetail);
+  console.log(matchesDetail);
 
   matchesDetail.forEach((element) => {
     console.log(`Modo de Juego -> ${element.info.gameMode}`);
@@ -47,11 +49,10 @@ async function getMatches(summonerTagName) {
       else teamId = "Blue";
       return { summonerName, teamId, championName };
     });
-    // console.table(xd);
+    console.table(xd);
     // element.info.participants.forEach((el) => {});
   });
 }
-
 async function getDataChampionMastery(summonerTagName) {
   const {
     accountId,
@@ -63,8 +64,8 @@ async function getDataChampionMastery(summonerTagName) {
     summonerLevel,
   } = await getSummonerData(summonerTagName);
 
-  const URL = `https://la1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/${id}?api_key=${API_KEY}`;
-
+  const URL = `https://la1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-puuid/${puuid}?api_key=${API_KEY}`;
+  console.log(puuid);
   let dataChampionMastery = await makeRequest(URL);
   let dataChampion = await makeRequest(championDataURL);
   return {
@@ -85,9 +86,9 @@ async function dataChampion(summonerTagName) {
     summonerTagName
   );
   let dataRank = await getSummonerRank(summonerTagName);
-  // console.log(dataRank);
-  // console.log(dataChampionMastery);
-  // console.log(dataChampion);
+  console.log(dataRank);
+  console.log(dataChampionMastery);
+  console.log(dataChampion);
 
   dataChampionMastery.forEach(async (element, index) => {
     let xd = Object.entries(dataChampion).filter(
@@ -100,7 +101,7 @@ async function dataChampion(summonerTagName) {
       banner.style.backgroundSize = "cover";
       banner.style.backgroundPosition = "center";
 
-      // console.log(index,name[0]);
+      console.log(index,name[0]);
     }
     let date = new Date(element.lastPlayTime);
     let dateString = date.toLocaleDateString("es-VE");
@@ -137,7 +138,7 @@ async function dataChampion(summonerTagName) {
   });
   let info = document.createElement("h3");
   let xd = Object.values(dataRank).filter((el) => el.tier);
-  // // console.log(xd);
+  // console.log(xd);
   let imgSrc = await xd.map(
     (el) =>
       `img/rank/${el.tier[0]}${el.tier
@@ -150,9 +151,9 @@ async function dataChampion(summonerTagName) {
   iconImg.src = `https://ddragon.leagueoflegends.com/cdn/12.7.1/img/profileicon/${profileIconId}.png`;
   iconImg.classList = "icon";
   // let rankUrlImage = imgSrc[0];
-  // console.log(imgSrc);
+  console.log(imgSrc);
 
-  // // console.log(rankUrlImage);
+  // console.log(rankUrlImage);
   // rankImg.src=rankUrlImage;
   // iconImg.style.height="50px";
   info.innerText = `${name}`;
@@ -184,7 +185,7 @@ async function dataChampion(summonerTagName) {
       rankInfo.classList = "rankInfo";
       rankInfo.appendChild(win);
       char.id = xd[i].queueType === "RANKED_SOLO_5x5" ? "SoloQ" : "Flex";
-      // console.log(char);
+      console.log(char);
       let ctx = char.getContext("2d");
       let myChart;
       let data = {
@@ -240,6 +241,7 @@ async function dataChampion(summonerTagName) {
 async function getSummonerData(summonerTagName) {
   let summonerURL = `https://la1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerTagName}?api_key=${API_KEY}`;
   let summonerData = await makeRequest(summonerURL);
+  console.log(summonerTagName,API_KEY);
   return summonerData;
 }
 async function getSummonerRank(summonerTagName) {
@@ -268,7 +270,7 @@ summonerTag.addEventListener("keyup", (e) => {
   }
 });
 buscar.addEventListener("click", () => {
-  // console.log("xd");
+  console.log("xd");
   dataChampion(summonerTag.value);
 });
 
